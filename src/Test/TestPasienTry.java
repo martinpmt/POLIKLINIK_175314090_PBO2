@@ -5,8 +5,8 @@
  */
 package Test;
 
-import Poliklinik.Dokter;
-import Poliklinik.Pasien;
+import model.Dokter;
+import model.Pasien;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -37,6 +37,7 @@ public class TestPasienTry {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
         System.out.println("===========================================");
         System.out.println("PASIEN");
         System.out.println("===========================================");

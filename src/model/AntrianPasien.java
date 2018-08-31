@@ -76,8 +76,9 @@ public class AntrianPasien {
             throw new Exception("Antrian Pasien Penuh");
         }
     }
-    public Pasien panggilPasien(int noAntri)throws Exception{
-        
+
+    public Pasien panggilPasien(int noAntri) throws Exception {
+
     }
 
 }
