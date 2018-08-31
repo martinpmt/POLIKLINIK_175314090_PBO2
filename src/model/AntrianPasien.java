@@ -29,13 +29,6 @@ public class AntrianPasien {
         this.daftarPasien = daftarPasien;
     }
 
-    public AntrianPasien(int tanggalAntrian, int bulanAntrian, int tahunAntrian, Klinik klinik) {
-        this.tanggalAntrian = tanggalAntrian;
-        this.bulanAntrian = bulanAntrian;
-        this.tahunAntrian = tahunAntrian;
-        this.klinik = klinik;
-    }
-
     public int getTanggalAntrian() {
         return tanggalAntrian;
     }

@@ -9,6 +9,7 @@ import model.Dokter;
 import model.Pasien;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import model.AntrianPasien;
 
 /**
  *
@@ -19,6 +20,7 @@ public class TestPasienTry {
     public static void main(String[] args) {
         Pasien pasien1 = new Pasien("Martin");
         Dokter dokter1 = new Dokter("Dr. Jono");
+        AntrianPasien antri = new AntrianPasien();
 
         try {
             pasien1.setAlamat("Klaten");
@@ -33,11 +35,14 @@ public class TestPasienTry {
             dokter1.setTanggalLahir(16);
             dokter1.setBulanLahir(10);
             dokter1.setTahunLahir(1980);
+            antri.setTanggalAntrian(30);
+            antri.setBulanAntrian(9);
+            antri.setTahunAntrian(2018);
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         System.out.println("===========================================");
         System.out.println("PASIEN");
         System.out.println("===========================================");
@@ -52,7 +57,6 @@ public class TestPasienTry {
         System.out.println("DOKTER");
         System.out.println("===========================================");
         System.out.println("Nama            : " + dokter1.getNama());
-
         System.out.println("Alamat          : " + dokter1.getAlamat());
         System.out.println("Tempat Lahir    : " + dokter1.getTempatLahir());
         System.out.println("Tanggal Lahir   : " + dokter1.getTanggalLahir() + "/" + dokter1.getBulanLahir() + "/" + dokter1.getTahunLahir());
