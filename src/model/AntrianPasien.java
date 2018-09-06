@@ -5,69 +5,85 @@
  */
 package model;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
- * @author jarkom
+ * @author Martin Paramarta
  */
 public class AntrianPasien {
 
-    private int tanggalAntrian, bulanAntrian, tahunAntrian;
     private Klinik klinik;
-    private int noAntri = 0;
-    private final int JUMLAH_MAKSIMAL_PASIEN = 50;
-    private Pasien[] daftarPasien = new Pasien[JUMLAH_MAKSIMAL_PASIEN];
+    private ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
 
+    /**
+     * Konstruktor untuk mendeklarasikan objek AntrianPasien
+     */
     public AntrianPasien() {
 
     }
 
-    public Pasien[] getDaftarPasien() {
-        return daftarPasien;
-    }
-
-    public void setDaftarPasien(Pasien[] daftarPasien) {
-        this.daftarPasien = daftarPasien;
-    }
-
-    public int getTanggalAntrian() {
-        return tanggalAntrian;
-    }
-
-    public void setTanggalAntrian(int tanggalAntrian) {
-        this.tanggalAntrian = tanggalAntrian;
-    }
-
-    public int getBulanAntrian() {
-        return bulanAntrian;
-    }
-
-    public void setBulanAntrian(int bulanAntrian) {
-        this.bulanAntrian = bulanAntrian;
-    }
-
-    public int getTahunAntrian() {
-        return tahunAntrian;
-    }
-
-    public void setTahunAntrian(int tahunAntrian) {
-        this.tahunAntrian = tahunAntrian;
-    }
-
+    /**
+     * method getKlinik digunakan untuk mengambil nilai dari variabel klinik dengan pengembalian tipe Klinik
+     *
+     * @return
+     */
     public Klinik getKlinik() {
         return klinik;
     }
 
+    /**
+     * method setKlinik digunakan untuk mengatur/set nilai dari variabel klinik yang bertipe String
+     *
+     * @param klinik
+     */
     public void setKlinik(Klinik klinik) {
+        // variabel klinik sama dengan variabel lokal klinik
         this.klinik = klinik;
     }
 
-    public void mendaftar(Pasien pasien) throws Exception {
-        if (noAntri < JUMLAH_MAKSIMAL_PASIEN) {
-            daftarPasien[noAntri] = pasien;
-            noAntri++;
-        } else {
-            throw new Exception("Antrian Pasien Penuh");
-        }
+    /**
+     * method untuk mengambil nilai dari variabel daftarPasien
+     *
+     * @return
+     */
+    public ArrayList<Pasien> getDaftarPasien() {
+        return daftarPasien;
+    }
+
+    /**
+     * method setDaftarPasien digunakan untuk mengatur/set nilai dari variabel daftarPasien 
+     *
+     * @param daftarPasien
+     */
+    public void setDaftarPasien(ArrayList<Pasien> daftarPasien) {
+        // variabel daftarPasien sama dengan variabel lokal daftarPasien
+        this.daftarPasien = daftarPasien;
+    }
+
+    /**
+     * Method untuk menampilkan tanggal dan waktu antrian
+     */
+    public void TanggalAntrian() {
+         // membuat objek baru bernama date dengan tipe data Date
+        Date date = new Date();
+        // membuat objek bernama format bertipe simpleDateFormat sebagai format tampilan tanggal
+        SimpleDateFormat format = new SimpleDateFormat("E dd/MM/yyy 'at' hh:mm:ss");
+        // menampilkan objek format dengan format date
+        System.out.println(format.format(date));
+    }
+
+    /**
+     * Method Mendaftar unutk mendaftar pasien baru di nomor antrian dengan parameter pasien bertipe Pasieb
+     *
+     * @param pasien
+     * @throws Exception
+     */
+    public void Mendaftar(Pasien pasien) {
+        // mengisi data variabel daftarPasien dengan variabel lokal daftarPasien 
+        daftarPasien.add(pasien);
     }
 
 }

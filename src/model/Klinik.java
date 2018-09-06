@@ -13,27 +13,53 @@ public class Klinik {
 
     private String idKlinik, nama;
 
+    /**
+     * konstruktor untuk mendeklarasikan objek pasien dengan parameter lokal
+     * @param idKlinik
+     * @param nama
+     */
     public Klinik(String idKlinik, String nama) {
+        // pernyataan bahwa variabel idKlinik sama dengan variabel lokal idKlinik
         this.idKlinik = idKlinik;
+        // pernyataan bahwa variabel nama sama dengan variabel lokal nama
         this.nama = nama;
     }
 
+    /**
+     * method getIdKlinik digunakan untuk mengambil nilai dari variabel idKlinik dengan pengembalian tipe String
+     * @return
+     */
     public String getIdKlinik() {
         return idKlinik;
     }
 
+    /**
+     * method setIdKlinik digunakan untuk mengatur/set nilai dari variabel idKlinik yang bertipe String
+     * @param idKlinik
+     */
     public void setIdKlinik(String idKlinik) {
         this.idKlinik = idKlinik;
     }
 
+    /**
+     * method getNama digunakan untuk mengambil nilai dari variabel nama dengan pengembalian tipe String
+     * @return
+     */
     public String getNama() {
         return nama;
     }
 
+    /**
+     * method setNama digunakan untuk mengatur/set nilai dari variabel nama yang bertipe String
+     * @param nama
+     */
     public void setNama(String nama) {
         this.nama = nama;
     }
 
+    /**
+     * Konstruktor untuk mendeklarasikan objek pasien 
+     */
     public Klinik() {
     }
 }
