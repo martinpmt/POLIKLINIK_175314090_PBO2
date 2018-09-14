@@ -5,16 +5,20 @@
  */
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import model.Pasien;
 
 /**
  *
  * @author jarkom
  */
-public class TambahAntrianDialog extends JDialog {
+public class TambahAntrianDialog extends JDialog implements ActionListener {
 
     private JLabel judulLabel;
     private JLabel noRMLabel;
@@ -34,7 +38,7 @@ public class TambahAntrianDialog extends JDialog {
     public void init() {
         this.setLayout(null);
 
-        judulLabel = new JLabel("Form Daftar Antrian");
+        judulLabel = new JLabel("Form Tambah Antrian");
         judulLabel.setBounds(85, 25, 200, 20);
         this.add(judulLabel);
 
@@ -65,6 +69,20 @@ public class TambahAntrianDialog extends JDialog {
         simpanButton = new JButton("Simpan");
         simpanButton.setBounds(125, 300, 100, 30);
         this.add(simpanButton);
+        
+        simpanButton.addActionListener(this);
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == simpanButton) {
+            Pasien baru = new Pasien();
+            
+            Pasien.tambahPasienBaru(baru);
+
+            JOptionPane.showMessageDialog(null, "Data Telah Ditambahkan");
+            this.dispose();
+        }
     }
 }

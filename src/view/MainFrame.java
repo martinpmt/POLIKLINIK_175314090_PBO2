@@ -11,12 +11,14 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Martin Paramarta
  */
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements ActionListener {
 
     private JMenuBar menuBar;
     private JMenu fileMenu;
@@ -44,6 +46,27 @@ public class MainFrame extends JFrame {
         menuBar.add(fileMenu);
 
         this.setJMenuBar(menuBar);
+
+        tambahPasien.addActionListener(this);
+        tambahAntrian.addActionListener(this);
+        exitMenuItem.addActionListener(this);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == exitMenuItem) {
+            System.exit(0);
+        }
+        if (e.getSource() == tambahPasien) {
+            TambahPasienBaruDialog test = new TambahPasienBaruDialog("Form Tambah Pasien");
+            test.setSize(300, 400);
+            test.setVisible(true);
+        }
+        if (e.getSource() == tambahAntrian) {
+            TambahAntrianDialog test = new TambahAntrianDialog("Form Tambah Antrian");
+            test.setSize(300, 400);
+            test.setVisible(true);
+        }
+
+    }
 }

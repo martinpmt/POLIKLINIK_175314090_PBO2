@@ -15,7 +15,7 @@ import view.TambahAntrianDialog;
  */
 public class TestAntrianDialog {
     public static void main(String[] args) {
-        TambahAntrianDialog test = new TambahAntrianDialog("Daftar Antrian Dialog");
+        TambahAntrianDialog test = new TambahAntrianDialog("Form Tambah Antrian");
         test.setSize(300, 400);
         test.setVisible(true);
         
