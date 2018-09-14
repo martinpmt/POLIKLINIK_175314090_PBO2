@@ -20,6 +20,8 @@ public class MainFrame extends JFrame {
 
     private JMenuBar menuBar;
     private JMenu fileMenu;
+    private JMenuItem tambahPasien;
+    private JMenuItem tambahAntrian;
     private JMenuItem exitMenuItem;
 
     public MainFrame() throws HeadlessException {
@@ -33,10 +35,14 @@ public class MainFrame extends JFrame {
         this.setTitle("Main Frame");
         // buat menu
         fileMenu = new JMenu("File");
-        exitMenuItem = new JMenuItem("Exit");
+        tambahPasien = new JMenuItem("Tambah Pasien");
+        tambahAntrian = new JMenuItem("Tambah Antrian");
+        exitMenuItem = new JMenuItem("Keluar");
+        fileMenu.add(tambahPasien);
+        fileMenu.add(tambahAntrian);
         fileMenu.add(exitMenuItem);
         menuBar.add(fileMenu);
-        
+
         this.setJMenuBar(menuBar);
     }
 

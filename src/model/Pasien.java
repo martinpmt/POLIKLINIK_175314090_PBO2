@@ -6,6 +6,7 @@
 package model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,6 +14,7 @@ import java.util.Date;
  * @author Martin Paramarta
  */
 public class Pasien {
+
     private String noRekamMedis;
     private String nama;
     private String alamat;
@@ -20,15 +22,38 @@ public class Pasien {
     private int tanggalLahir;
     private int bulanLahir;
     private int tahunLahir;
-    
-/**
-     * konstruktor untuk mendeklarasikan objek pasien 
+    private String nik;
+
+
+    public static ArrayList<Pasien> getDaftarPasienKlinik() {
+        return daftarPasienKlinik;
+    }
+
+    public static void setDaftarPasienKlinik(ArrayList<Pasien> daftarPasienKlinik) {
+        Pasien.daftarPasienKlinik = daftarPasienKlinik;
+    }
+
+    public Pasien(String nama, String alamat, String tempatLahir, int tanggalLahir, int bulanLahir, int tahunLahir, String nik) {
+        this.nama = nama;
+        this.alamat = alamat;
+        this.tempatLahir = tempatLahir;
+        this.tanggalLahir = tanggalLahir;
+        this.bulanLahir = bulanLahir;
+        this.tahunLahir = tahunLahir;
+        this.nik = nik;
+    }
+
+    /**
+     * konstruktor untuk mendeklarasikan objek pasien
      */
     public Pasien() {
 
     }
-/**
-     * konstruktor untuk mendeklarasikan objek pasien dengan parameter nama yang bertipe String
+
+    /**
+     * konstruktor untuk mendeklarasikan objek pasien dengan parameter nama yang
+     * bertipe String
+     *
      * @param nama
      */
     public Pasien(String nama) {
@@ -37,7 +62,9 @@ public class Pasien {
     }
 
     /**
-     * method getNoRekamMedis digunakan untuk mengambil nilai dari variabel noRekamMedis dengan pengembalian tipe String
+     * method getNoRekamMedis digunakan untuk mengambil nilai dari variabel
+     * noRekamMedis dengan pengembalian tipe String
+     *
      * @return
      */
     public String getNoRekamMedis() {
@@ -45,7 +72,9 @@ public class Pasien {
     }
 
     /**
-     * method setNoRekamMedis digunakan untuk mengatur/set nilai dari variabel noRekamMedis yang bertipe String
+     * method setNoRekamMedis digunakan untuk mengatur/set nilai dari variabel
+     * noRekamMedis yang bertipe String
+     *
      * @param noRekamMedis
      * @throws Exception
      */
@@ -61,7 +90,9 @@ public class Pasien {
     }
 
     /**
-     * method getNama digunakan untuk mengambil nilai dari variabel nama dengan pengembalian tipe String
+     * method getNama digunakan untuk mengambil nilai dari variabel nama dengan
+     * pengembalian tipe String
+     *
      * @return
      */
     public String getNama() {
@@ -69,7 +100,9 @@ public class Pasien {
     }
 
     /**
-     * method setNama digunakan untuk mengatur/set nilai dari variabel nama yang bertipe String
+     * method setNama digunakan untuk mengatur/set nilai dari variabel nama yang
+     * bertipe String
+     *
      * @param nama
      */
     public void setNama(String nama) {
@@ -77,7 +110,9 @@ public class Pasien {
     }
 
     /**
-     * method getAlamat digunakan untuk mengambil nilai dari variabel alamat dengan pengembalian tipe String
+     * method getAlamat digunakan untuk mengambil nilai dari variabel alamat
+     * dengan pengembalian tipe String
+     *
      * @return
      */
     public String getAlamat() {
@@ -85,7 +120,9 @@ public class Pasien {
     }
 
     /**
-     * method setAlamat digunakan untuk mengatur/set nilai dari variabel alamat yang bertipe String
+     * method setAlamat digunakan untuk mengatur/set nilai dari variabel alamat
+     * yang bertipe String
+     *
      * @param alamat
      */
     public void setAlamat(String alamat) {
@@ -93,7 +130,9 @@ public class Pasien {
     }
 
     /**
-     * method getTempatLahir digunakan untuk mengambil nilai dari variabel tempatLahir dengan pengembalian tipe String
+     * method getTempatLahir digunakan untuk mengambil nilai dari variabel
+     * tempatLahir dengan pengembalian tipe String
+     *
      * @return
      */
     public String getTempatLahir() {
@@ -101,7 +140,9 @@ public class Pasien {
     }
 
     /**
-     * method setTempatLahir digunakan untuk mengatur/set nilai dari variabel tempatLahir yang bertipe String
+     * method setTempatLahir digunakan untuk mengatur/set nilai dari variabel
+     * tempatLahir yang bertipe String
+     *
      * @param tempatLahir
      */
     public void setTempatLahir(String tempatLahir) {
@@ -109,7 +150,9 @@ public class Pasien {
     }
 
     /**
-     * method getTanggalLahir digunakan untuk mengambil nilai dari variabel tanggalLahir dengan pengembalian tipe String
+     * method getTanggalLahir digunakan untuk mengambil nilai dari variabel
+     * tanggalLahir dengan pengembalian tipe String
+     *
      * @return
      */
     public int getTanggalLahir() {
@@ -117,7 +160,9 @@ public class Pasien {
     }
 
     /**
-     * method setTanggalLahir digunakan untuk mengatur/set nilai dari variabel tanggalLahir yang bertipe int
+     * method setTanggalLahir digunakan untuk mengatur/set nilai dari variabel
+     * tanggalLahir yang bertipe int
+     *
      * @param tanggalLahir
      * @throws Exception
      */
@@ -138,7 +183,9 @@ public class Pasien {
     }
 
     /**
-     * method getBulanLahir digunakan untuk mengambil nilai dari variabel bulanLahir dengan pengembalian tipe int
+     * method getBulanLahir digunakan untuk mengambil nilai dari variabel
+     * bulanLahir dengan pengembalian tipe int
+     *
      * @return
      */
     public int getBulanLahir() {
@@ -146,7 +193,9 @@ public class Pasien {
     }
 
     /**
-     * method setBulanLahir digunakan untuk mengatur/set nilai dari variabel bulanLahir yang bertipe int
+     * method setBulanLahir digunakan untuk mengatur/set nilai dari variabel
+     * bulanLahir yang bertipe int
+     *
      * @param bulanLahir
      * @throws Exception
      */
@@ -168,7 +217,9 @@ public class Pasien {
     }
 
     /**
-     * method getTanggalLahir digunakan untuk mengambil nilai dari variabel tanggalLahir dengan pengembalian tipe int
+     * method getTanggalLahir digunakan untuk mengambil nilai dari variabel
+     * tanggalLahir dengan pengembalian tipe int
+     *
      * @return
      */
     public int getTahunLahir() {
@@ -176,7 +227,9 @@ public class Pasien {
     }
 
     /**
-     * method setTahunLahir digunakan untuk mengatur/set nilai dari variabel tahunLahir yang bertipe int
+     * method setTahunLahir digunakan untuk mengatur/set nilai dari variabel
+     * tahunLahir yang bertipe int
+     *
      * @param tahunLahir
      * @throws Exception
      */
@@ -191,7 +244,10 @@ public class Pasien {
     }
 
     /**
-     * method buatNomorRekamMedis digunakan untuk membuat nomor rekam medis yang terdiri dari tanggal pasien masuk ditambah 3 huruf pertama dari nama pasien
+     * method buatNomorRekamMedis digunakan untuk membuat nomor rekam medis yang
+     * terdiri dari tanggal pasien masuk ditambah 3 huruf pertama dari nama
+     * pasien
+     *
      * @return
      */
     public String buatNomorRekamMedis() {
@@ -206,4 +262,25 @@ public class Pasien {
         // pengembalian nilai variabel nomorRekamMedis
         return nomorRekamMedis;
     }
+    
+    public String getNik() {
+        return nik;
+    }
+
+    public void setNik(String nik) {
+        this.nik = nik;
+    }
+    
+    public static ArrayList<Pasien> daftarPasienKlinik = new ArrayList<Pasien>();
+
+    public static void tambahPasienBaru(Pasien pasien) {
+        Pasien.daftarPasienKlinik.add(pasien);
+    }
+
+    public static Pasien cariPasien(String string) {
+        // listing cari elemen
+
+        return null;
+    }
+
 }

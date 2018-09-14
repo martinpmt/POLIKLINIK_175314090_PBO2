@@ -5,7 +5,6 @@
  */
 package Test;
 
-import view.DaftarAntrianDialog;
 import view.MainFrame;
 
 /**

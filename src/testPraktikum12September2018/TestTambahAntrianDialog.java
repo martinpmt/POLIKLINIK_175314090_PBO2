@@ -3,21 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Test;
+package testPraktikum12September2018;
 
-import view.DaftarPasienBaruDialog;
-
-
+import view.TambahAntrianDialog;
 
 /**
  *
- * @author user only
+ * @author admin
  */
-public class TestPasienBaru {
+public class TestTambahAntrianDialog {
     public static void main(String[] args) {
-        DaftarPasienBaruDialog test = new DaftarPasienBaruDialog("Daftar Pasien Baru");
-        test.setSize(300, 400);
+        TambahAntrianDialog test = new TambahAntrianDialog("FORM TAMBAH ANTRIAN");
+        test.setSize(500, 400);
         test.setVisible(true);
-        
     }
 }
