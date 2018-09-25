@@ -6,16 +6,19 @@
 package Test;
 
 import view.MainFrame;
+import javax.swing.JFrame;
 
 /**
  *
- * @author jarkom
+ * @author Martin Paramarta
  */
 public class TestMainFrame {
     public static void main(String[] args) {
-        MainFrame test = new MainFrame();
-        test.setSize(300, 400);
-        test.setVisible(true);
+        MainFrame MF=new MainFrame();
+        MF.setTitle("KLINIK");
+        MF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        MF.setSize(550, 300);
+        MF.setVisible(true);
     }
-   
 }
+

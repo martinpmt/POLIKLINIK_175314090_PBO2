@@ -16,22 +16,14 @@ import java.util.Date;
 public class Pasien {
 
     private String noRekamMedis;
+    private String NIK;
+
     private String nama;
     private String alamat;
     private String tempatLahir;
     private int tanggalLahir;
     private int bulanLahir;
     private int tahunLahir;
-    private String nik;
-
-
-    public static ArrayList<Pasien> getDaftarPasienKlinik() {
-        return daftarPasienKlinik;
-    }
-
-    public static void setDaftarPasienKlinik(ArrayList<Pasien> daftarPasienKlinik) {
-        Pasien.daftarPasienKlinik = daftarPasienKlinik;
-    }
 
     public Pasien(String nama, String alamat, String tempatLahir, int tanggalLahir, int bulanLahir, int tahunLahir, String nik) {
         this.nama = nama;
@@ -40,7 +32,7 @@ public class Pasien {
         this.tanggalLahir = tanggalLahir;
         this.bulanLahir = bulanLahir;
         this.tahunLahir = tahunLahir;
-        this.nik = nik;
+        this.noRekamMedis = nik;
     }
 
     /**
@@ -76,17 +68,9 @@ public class Pasien {
      * noRekamMedis yang bertipe String
      *
      * @param noRekamMedis
-     * @throws Exception
      */
-    public void setNoRekamMedis(String noRekamMedis) throws Exception {
-        // pengecekan panjang karakter variabel noRekamMedis harus 6-20 karakter
-        if (noRekamMedis.length() >= 6 && noRekamMedis.length() <= 20) {
-            // pernyataan bahwa variabel noRekamMedis sama dengan variabel lokal noRekamMedis
-            this.noRekamMedis = noRekamMedis;
-        } else {
-            // pernyataan apabila isi dari variabel noRekamMedis salah
-            throw new Exception("No Rekam Medis Salah");
-        }
+    public void setNoRekamMedis(String noRekamMedis) {
+        this.noRekamMedis = noRekamMedis;
     }
 
     /**
@@ -250,37 +234,57 @@ public class Pasien {
      *
      * @return
      */
-    public String buatNomorRekamMedis() {
-        // deklarasi variabel nomorRekamMedis bertipe String
-        String nomorRekamMedis;
-        // membuat objek baru bernama date dengan tipe data Date
-        Date date = new Date();
-        // membuat objek bernama format bertipe simpleDateFormat sebagai format tampilan tanggal
-        SimpleDateFormat format = new SimpleDateFormat("yyyMMdd");
-        // mendeklarasikan nilai dari variabel nomorRekamMedis yaitu tanggal ditambah 3 huruf pertama dari variabel nama
-        nomorRekamMedis = format.format(date) + nama.substring(0, 3);
-        // pengembalian nilai variabel nomorRekamMedis
-        return nomorRekamMedis;
-    }
-    
-    public String getNik() {
-        return nik;
+
+    public void getTanggalKelahiran() {
+        Date tanggalKelahiran = new Date(getTahunLahir() - 1900, getBulanLahir() - 1, getTanggalLahir());
+        SimpleDateFormat ft = new SimpleDateFormat("dd - MM - yyyy");
+        System.out.println(ft.format(tanggalKelahiran));
     }
 
-    public void setNik(String nik) {
-        this.nik = nik;
-    }
-    
     public static ArrayList<Pasien> daftarPasienKlinik = new ArrayList<Pasien>();
 
-    public static void tambahPasienBaru(Pasien pasien) {
-        Pasien.daftarPasienKlinik.add(pasien);
+    public static ArrayList<Pasien> daftarPasienKlinik() {
+        return daftarPasienKlinik;
     }
 
-    public static Pasien cariPasien(String string) {
-        // listing cari elemen
+    public static void tambahPasienBaru(Pasien pasien) {
+        daftarPasienKlinik.add(pasien);
+    }
 
+    public String getNIK() {
+        return NIK;
+    }
+
+    public void setNIK(String NIK) throws Exception {
+        if (NIK.length() == 16) {
+            String nik = NIK;
+            this.setNoRekamMedis(nik);
+            this.NIK = NIK;
+        } else {
+            throw new Exception("Nomor Induk Kependudukan terdiri dari 16 karakter");
+        }
+    }
+
+    public static Pasien cariPasien(String noRekamMedis) {
+        for (int i = 0; i < daftarPasienKlinik.size(); i++) {
+            if (daftarPasienKlinik.get(i).getNIK().equals(noRekamMedis)) {
+                return daftarPasienKlinik.get(i);
+            }
+        }
         return null;
+    }
+
+    public void printInfo() {
+        System.out.printf("%-25s", "Nomor Rekam Medis Pasien");
+        System.out.println(": " + getNoRekamMedis());
+        System.out.printf("%-25s", "Nama Pasien");
+        System.out.println(": " + getNama());
+        System.out.printf("%-25s", "Tempat, Tanggal Lahir");
+        System.out.print(": " + getTempatLahir() + " , ");
+        getTanggalKelahiran();
+        System.out.printf("%-25s", "Alamat");
+        System.out.println(": " + getAlamat());
+        System.out.println("");
     }
 
 }

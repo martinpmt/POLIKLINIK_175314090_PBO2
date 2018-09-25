@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testPraktikum12September2018;
+package Test;
 
 import model.Pasien;
 
 /**
  *
- * @author admin
+ * @author Martin Paramarta
  */
-public class TestKelasPasien {
+public class TestTambahPasien {
+
     public static void main(String[] args) {
         Pasien test = new Pasien(
                 "Puspa", // nama pasien
@@ -22,7 +23,7 @@ public class TestKelasPasien {
                 1974, // tahun lahir
                 "19740112" // NIK
         );
-        
+
         Pasien test1 = new Pasien(
                 "Budi", // nama pasien
                 "Klaten", // alamat
@@ -32,15 +33,16 @@ public class TestKelasPasien {
                 1999, // tahun lahir
                 "19990110" // NIK
         );
-        
+
         Pasien.tambahPasienBaru(test);
         Pasien.tambahPasienBaru(test1);
-        
-        for (int i = 0; i < Pasien.daftarPasienKlinik.size(); i++) {
-            System.out.println("Nama : "+Pasien.daftarPasienKlinik.get(i).getNama());
+
+        for (int i = 0; i < Pasien.daftarPasienKlinik().size(); i++) {
+            System.out.println("Nama : " + Pasien.daftarPasienKlinik().get(i).getNama());
         }
-        
+
         Pasien cari = Pasien.cariPasien("19990110");
-        System.out.println("Nama Hasil Pencarian = "+cari.getNama());
+        System.out.println("Nama Hasil Pencarian = " + cari.getNama());
     }
 }
+

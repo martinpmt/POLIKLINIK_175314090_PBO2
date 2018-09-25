@@ -6,18 +6,18 @@
 package Test;
 
 import view.TambahPasienBaruDialog;
-
-
+import javax.swing.JFrame;
 
 /**
  *
- * @author user only
+ * @author Martin Paramarta
  */
-public class TestPasienBaruDialog {
+public class TestDaftarPasienBaru {
+
     public static void main(String[] args) {
-        TambahPasienBaruDialog test = new TambahPasienBaruDialog("Form Tambah Pasien");
-        test.setSize(300, 400);
+       TambahPasienBaruDialog test = new TambahPasienBaruDialog("Tambah Pasien Baru");
+        test.setTitle("Daftar Pasien Baru");
+        test.setSize(550, 350);
         test.setVisible(true);
-        
     }
 }

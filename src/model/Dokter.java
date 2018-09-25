@@ -13,6 +13,7 @@ import java.util.Date;
  * @author Martin Paramarta
  */
 public class Dokter {
+
     private String noPegawai;
     private String nama;
     private String alamat;
@@ -29,7 +30,9 @@ public class Dokter {
     }
 
     /**
-     * konstruktor untuk mendeklarasikan objek Dokter dengan parameter nama yang bertipe String
+     * konstruktor untuk mendeklarasikan objek Dokter dengan parameter nama yang
+     * bertipe String
+     *
      * @param nama
      */
     public Dokter(String nama) {
@@ -38,15 +41,20 @@ public class Dokter {
     }
 
     /**
-     * method getNoPegawai digunakan untuk mengambil nilai dari variabel noPegawai dengan pengembalian tipe String
+     * method getNoPegawai digunakan untuk mengambil nilai dari variabel
+     * noPegawai dengan pengembalian tipe String
+     *
      * @return
      */
-    public String getNoPegawai() {
+    public String getNomorPegawai() {
+        String noPegawai = (this.noPegawai + nama.substring(0, 3));
         return noPegawai;
     }
 
     /**
-     * method setNoPegawai digunakan untuk mengatur/set nilai dari variabel noPegawai yang bertipe String
+     * method setNoPegawai digunakan untuk mengatur/set nilai dari variabel
+     * noPegawai yang bertipe String
+     *
      * @param noPegawai
      * @throws Exception
      */
@@ -62,7 +70,9 @@ public class Dokter {
     }
 
     /**
-     * method getNama digunakan untuk mengambil nilai dari variabel nama dengan pengembalian tipe String
+     * method getNama digunakan untuk mengambil nilai dari variabel nama dengan
+     * pengembalian tipe String
+     *
      * @return
      */
     public String getNama() {
@@ -70,7 +80,9 @@ public class Dokter {
     }
 
     /**
-     * method setNama digunakan untuk mengatur/set nilai dari variabel nama yang bertipe String
+     * method setNama digunakan untuk mengatur/set nilai dari variabel nama yang
+     * bertipe String
+     *
      * @param nama
      */
     public void setNama(String nama) {
@@ -78,7 +90,9 @@ public class Dokter {
     }
 
     /**
-     * method getAlamat digunakan untuk mengambil nilai dari variabel alamat dengan pengembalian tipe String
+     * method getAlamat digunakan untuk mengambil nilai dari variabel alamat
+     * dengan pengembalian tipe String
+     *
      * @return
      */
     public String getAlamat() {
@@ -86,7 +100,9 @@ public class Dokter {
     }
 
     /**
-     * method setAlamat digunakan untuk mengatur/set nilai dari variabel alamat yang bertipe String
+     * method setAlamat digunakan untuk mengatur/set nilai dari variabel alamat
+     * yang bertipe String
+     *
      * @param alamat
      */
     public void setAlamat(String alamat) {
@@ -94,7 +110,9 @@ public class Dokter {
     }
 
     /**
-     * method getTempatLahir digunakan untuk mengambil nilai dari variabel tempatLahir dengan pengembalian tipe String
+     * method getTempatLahir digunakan untuk mengambil nilai dari variabel
+     * tempatLahir dengan pengembalian tipe String
+     *
      * @return
      */
     public String getTempatLahir() {
@@ -102,7 +120,9 @@ public class Dokter {
     }
 
     /**
-     * method setTempatLahir digunakan untuk mengatur/set nilai dari variabel tempatLahir yang bertipe String
+     * method setTempatLahir digunakan untuk mengatur/set nilai dari variabel
+     * tempatLahir yang bertipe String
+     *
      * @param tempatLahir
      */
     public void setTempatLahir(String tempatLahir) {
@@ -110,7 +130,9 @@ public class Dokter {
     }
 
     /**
-     * method getTanggalLahir digunakan untuk mengambil nilai dari variabel tanggalLahir dengan pengembalian tipe String
+     * method getTanggalLahir digunakan untuk mengambil nilai dari variabel
+     * tanggalLahir dengan pengembalian tipe String
+     *
      * @return
      */
     public int getTanggalLahir() {
@@ -118,7 +140,7 @@ public class Dokter {
     }
 
     /**
-     * 
+     *
      * @param tanggalLahir
      * @throws Exception
      */
@@ -139,7 +161,9 @@ public class Dokter {
     }
 
     /**
-     * method getBulanLahir digunakan untuk mengambil nilai dari variabel bulanLahir dengan pengembalian tipe int
+     * method getBulanLahir digunakan untuk mengambil nilai dari variabel
+     * bulanLahir dengan pengembalian tipe int
+     *
      * @return
      */
     public int getBulanLahir() {
@@ -147,7 +171,9 @@ public class Dokter {
     }
 
     /**
-     * method setBulanLahir digunakan untuk mengatur/set nilai dari variabel bulanLahir yang bertipe int
+     * method setBulanLahir digunakan untuk mengatur/set nilai dari variabel
+     * bulanLahir yang bertipe int
+     *
      * @param bulanLahir
      * @throws Exception
      */
@@ -169,7 +195,9 @@ public class Dokter {
     }
 
     /**
-     * method getTanggalLahir digunakan untuk mengambil nilai dari variabel tanggalLahir dengan pengembalian tipe int
+     * method getTanggalLahir digunakan untuk mengambil nilai dari variabel
+     * tanggalLahir dengan pengembalian tipe int
+     *
      * @return
      */
     public int getTahunLahir() {
@@ -177,7 +205,9 @@ public class Dokter {
     }
 
     /**
-     * method setTahunLahir digunakan untuk mengatur/set nilai dari variabel tahunLahir yang bertipe int
+     * method setTahunLahir digunakan untuk mengatur/set nilai dari variabel
+     * tahunLahir yang bertipe int
+     *
      * @param tahunLahir
      * @throws Exception
      */
@@ -190,6 +220,27 @@ public class Dokter {
             throw new Exception("Tahun Salah");
         }
     }
-   
-    
+
+    public void getTanggalKelahiranDokter() {
+        Date tanggalKelahiran = new Date(getTahunLahir() - 1900, getBulanLahir() - 1, getTanggalLahir());
+        SimpleDateFormat ft = new SimpleDateFormat("dd - MM - yyyy");
+        System.out.println(ft.format(tanggalKelahiran));
+
+    }
+
+    public void printInfo() {
+        System.out.println();
+        System.out.printf("%-20s", "");
+        System.out.println("Biodata Dokter" + "\n");
+        System.out.printf("%-25s", "Nomor Pegawai");
+        System.out.println(": " + getNomorPegawai());
+        System.out.printf("%-25s", "Nama");
+        System.out.println(": " + getNama());
+        System.out.printf("%-25s", "Alamat");
+        System.out.println(": " + getAlamat());
+        System.out.printf("%-25s", "Tempat, Tanggal Lahir");
+        System.out.print(": " + getTempatLahir() + ", ");
+        getTanggalKelahiranDokter();
+    }
+
 }

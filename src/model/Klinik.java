@@ -62,4 +62,13 @@ public class Klinik {
      */
     public Klinik() {
     }
+        public void printInfo() {
+        System.out.println("");
+        System.out.printf("%-20s", "");
+        System.out.println("KLINIK " + getNama().toUpperCase() + "\n");
+        System.out.printf("%-25s", "Nomor ID Klinik");
+        System.out.print(": ");
+        System.out.println(getIdKlinik());
+
+    }
 }
