@@ -1,2 +1,2 @@
-puspa	klaten
-adi	klaten
+001	puspa	klaten
+002	adi	klaten

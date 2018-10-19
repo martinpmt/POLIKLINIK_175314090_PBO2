@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import test17oktober.TestStreaming1;
 
 /**
  *
@@ -313,32 +314,49 @@ public class Pasien {
 
     public static void bacaDaftarPasien(File file) {
         FileInputStream fis = null;
-        String hasilBaca = "";
-        boolean nama = false;
-        boolean alamat = false;
-        boolean noRM = false;
-        int dataInt;
         try {
+            String hasilBaca = "";
             fis = new FileInputStream(file);
-            while ((dataInt == fis.read()) != -1) {
+            boolean nama = false;
+            boolean alamat = false;
+            boolean noRM = false;
+            int dataInt;
+            Pasien temp = new Pasien();
+            while ((dataInt = fis.read()) != -1) {
                 if ((char) dataInt != '\n') {
-                    if ((char) dataInt != '\t' && noRM = false) {
+                    if ((char) dataInt != '\t') {
                         hasilBaca = hasilBaca + (char) dataInt;
+                    } else if (nama == false) {
+                        nama = true;
+                        temp.setNama(hasilBaca);
+                        hasilBaca = "";
+                    } else if (alamat == false) {
+                        alamat = true;
+                        temp.setAlamat(hasilBaca);
+                        hasilBaca = "";
+                    } else if (noRM == false) {
+                        noRM = true;
+                        temp.setNoRM(hasilBaca);
+                        hasilBaca = "";
                     }
-                    
                 }
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fis.close();
+            } catch (IOException ex) {
+                Logger.getLogger(TestStreaming1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
 
     @Override
     public String toString() {
-        return nama + "\t" + alamat + "\n";
+        return noRM + "\t" + nama + "\t" + alamat + "\n";
     }
-
 }
