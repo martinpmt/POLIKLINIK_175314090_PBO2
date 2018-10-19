@@ -6,6 +6,7 @@
 package model;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,7 +24,6 @@ public class Pasien {
 
     private String noRM;
     private String NIK;
-
     private String nama;
     private String alamat;
     private String tempatLahir;
@@ -312,7 +312,28 @@ public class Pasien {
     }
 
     public static void bacaDaftarPasien(File file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        FileInputStream fis = null;
+        String hasilBaca = "";
+        boolean nama = false;
+        boolean alamat = false;
+        boolean noRM = false;
+        int dataInt;
+        try {
+            fis = new FileInputStream(file);
+            while ((dataInt == fis.read()) != -1) {
+                if ((char) dataInt != '\n') {
+                    if ((char) dataInt != '\t' && noRM = false) {
+                        hasilBaca = hasilBaca + (char) dataInt;
+                    }
+                    
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @Override
