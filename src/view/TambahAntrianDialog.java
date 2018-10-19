@@ -212,7 +212,7 @@ public class TambahAntrianDialog extends JDialog implements ActionListener {
                     AntrianPasien antrian = new AntrianPasien();
                     pasien.setNama(namaText.getText());
                     pasien.setAlamat(alamatText.getText());
-                    pasien.setNoRekamMedis(noRMText.getText());
+                    pasien.setNoRM(noRMText.getText());
                     int tanggal = Integer.valueOf(tanggalButton.getSelectedItem().toString());
                     int bulan = Integer.valueOf(bulanButton.getSelectedItem().toString());
                     int tahun = Integer.valueOf(tahunButton.getSelectedItem().toString());

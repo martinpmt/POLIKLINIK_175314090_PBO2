@@ -5,9 +5,15 @@
  */
 package model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,7 +21,7 @@ import java.util.Date;
  */
 public class Pasien {
 
-    private String noRekamMedis;
+    private String noRM;
     private String NIK;
 
     private String nama;
@@ -32,7 +38,7 @@ public class Pasien {
         this.tanggalLahir = tanggalLahir;
         this.bulanLahir = bulanLahir;
         this.tahunLahir = tahunLahir;
-        this.noRekamMedis = nik;
+        this.noRM = nik;
     }
 
     /**
@@ -59,8 +65,8 @@ public class Pasien {
      *
      * @return
      */
-    public String getNoRekamMedis() {
-        return noRekamMedis;
+    public String getNoRM() {
+        return noRM;
     }
 
     /**
@@ -69,8 +75,8 @@ public class Pasien {
      *
      * @param noRekamMedis
      */
-    public void setNoRekamMedis(String noRekamMedis) {
-        this.noRekamMedis = noRekamMedis;
+    public void setNoRM(String noRM) {
+        this.noRM = noRM;
     }
 
     /**
@@ -234,7 +240,6 @@ public class Pasien {
      *
      * @return
      */
-
     public void getTanggalKelahiran() {
         Date tanggalKelahiran = new Date(getTahunLahir() - 1900, getBulanLahir() - 1, getTanggalLahir());
         SimpleDateFormat ft = new SimpleDateFormat("dd - MM - yyyy");
@@ -251,6 +256,10 @@ public class Pasien {
         daftarPasienKlinik.add(pasien);
     }
 
+    public static ArrayList<Pasien> getDaftarPasien() {
+        return daftarPasienKlinik;
+    }
+
     public String getNIK() {
         return NIK;
     }
@@ -258,7 +267,7 @@ public class Pasien {
     public void setNIK(String NIK) throws Exception {
         if (NIK.length() == 16) {
             String nik = NIK;
-            this.setNoRekamMedis(nik);
+            this.setNoRM(nik);
             this.NIK = NIK;
         } else {
             throw new Exception("Nomor Induk Kependudukan terdiri dari 16 karakter");
@@ -276,7 +285,7 @@ public class Pasien {
 
     public void printInfo() {
         System.out.printf("%-25s", "Nomor Rekam Medis Pasien");
-        System.out.println(": " + getNoRekamMedis());
+        System.out.println(": " + getNoRM());
         System.out.printf("%-25s", "Nama Pasien");
         System.out.println(": " + getNama());
         System.out.printf("%-25s", "Tempat, Tanggal Lahir");
@@ -285,6 +294,30 @@ public class Pasien {
         System.out.printf("%-25s", "Alamat");
         System.out.println(": " + getAlamat());
         System.out.println("");
+    }
+
+    public static void simpanDaftarPasien(File file) {
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            for (int i = 0; i < daftarPasienKlinik.size(); i++) {
+                String data = daftarPasienKlinik.get(i).toString();
+                fos.write(data.getBytes());
+            }
+            fos.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void bacaDaftarPasien(File file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return nama + "\t" + alamat + "\n";
     }
 
 }
