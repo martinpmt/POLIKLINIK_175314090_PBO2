@@ -313,44 +313,43 @@ public class Pasien {
     }
 
     public static void bacaDaftarPasien(File file) {
-        FileInputStream fis = null;
+
+        boolean nama = false;
+        boolean alamat = false;
+        boolean noRM = false;
         try {
+            FileInputStream fis = null;
             String hasilBaca = "";
             fis = new FileInputStream(file);
-            boolean nama = false;
-            boolean alamat = false;
-            boolean noRM = false;
             int dataInt;
             Pasien temp = new Pasien();
             while ((dataInt = fis.read()) != -1) {
-                if ((char) dataInt != '\n') {
+                if ((char) dataInt != '\t') {
                     if ((char) dataInt != '\t') {
-                        hasilBaca = hasilBaca + (char) dataInt;
-                    } else if (nama == false) {
-                        nama = true;
-                        temp.setNama(hasilBaca);
-                        hasilBaca = "";
-                    } else if (alamat == false) {
+                        if ((char) dataInt != '\n') {
+                            hasilBaca = hasilBaca + (char) dataInt;
+                        } else if (nama = false) {
+                            nama = true;
+                            temp.setNama(hasilBaca);
+                            hasilBaca = "";
+                        }
+                    } else if (alamat = false) {
                         alamat = true;
                         temp.setAlamat(hasilBaca);
                         hasilBaca = "";
-                    } else if (noRM == false) {
-                        noRM = true;
-                        temp.setNoRM(hasilBaca);
-                        hasilBaca = "";
+
                     }
+                } else if (noRM = false) {
+                    noRM = true;
+                    temp.setNoRM(hasilBaca);
+                    hasilBaca = "";
                 }
+
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                fis.close();
-            } catch (IOException ex) {
-                Logger.getLogger(TestStreaming1.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
 
     }
