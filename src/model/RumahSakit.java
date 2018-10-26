@@ -5,7 +5,6 @@
  */
 package model;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -75,7 +74,7 @@ public class RumahSakit implements Serializable {
         }
     }
 
-   public static void bacaDaftarPasien(File file) {
+    public static void bacaDaftarPasien(File file) {
         int dataInt;
         boolean noRM = false;
         boolean nama = false;
@@ -143,6 +142,7 @@ public class RumahSakit implements Serializable {
             this.setNama(rs.getNama());
             this.setAlamat(rs.getAlamat());
             this.setDaftarPasien(rs.getDaftarPasien());
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(RumahSakit.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -151,6 +151,8 @@ public class RumahSakit implements Serializable {
             Logger.getLogger(RumahSakit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    
 
     public ArrayList<Pasien> getDaftarPasien() {
         return daftarPasien;
