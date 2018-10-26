@@ -313,38 +313,40 @@ public class Pasien {
     }
 
     public static void bacaDaftarPasien(File file) {
-
+        int dataInt;
+        boolean noRM = false;
         boolean nama = false;
         boolean alamat = false;
-        boolean noRM = false;
+        FileInputStream fis = null;
+        String hasilBaca = "";
+        Pasien temp = new Pasien();
         try {
-            FileInputStream fis = null;
-            String hasilBaca = "";
             fis = new FileInputStream(file);
-            int dataInt;
-            Pasien temp = new Pasien();
             while ((dataInt = fis.read()) != -1) {
-                if ((char) dataInt != '\t') {
+                if ((char) dataInt != '\n') {
                     if ((char) dataInt != '\t') {
-                        if ((char) dataInt != '\n') {
-                            hasilBaca = hasilBaca + (char) dataInt;
-                        } else if (nama = false) {
-                            nama = true;
+                        hasilBaca = hasilBaca + (char) dataInt;
+                    } else {
+                        if (noRM == false) {
+                            temp.setNoRM(hasilBaca);
+                            noRM = true;
+                            hasilBaca = "";
+                        } else if (nama == false) {
                             temp.setNama(hasilBaca);
+                            nama = true;
                             hasilBaca = "";
                         }
-                    } else if (alamat = false) {
-                        alamat = true;
-                        temp.setAlamat(hasilBaca);
-                        hasilBaca = "";
-
                     }
-                } else if (noRM = false) {
-                    noRM = true;
-                    temp.setNoRM(hasilBaca);
+                } else {
+                    temp.setAlamat(hasilBaca);
+                    alamat = true;
                     hasilBaca = "";
+                    Pasien.tambahPasienBaru(temp);
+                    noRM = false;
+                    nama = false;
+                    alamat = false;
+                    temp = new Pasien();
                 }
-
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
