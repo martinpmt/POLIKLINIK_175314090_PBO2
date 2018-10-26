@@ -5,6 +5,7 @@
  */
 package test24oktober2018;
 
+import java.io.File;
 import java.util.ArrayList;
 import model.Pasien;
 import model.RumahSakit;

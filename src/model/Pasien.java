@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +22,7 @@ import test17oktober.TestStreaming1;
  *
  * @author Martin Paramarta
  */
-public class Pasien {
+public class Pasien implements Serializable{
 
     private String noRM;
     private String NIK;
