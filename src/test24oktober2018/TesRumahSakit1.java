@@ -18,11 +18,13 @@ public class TesRumahSakit1 {
     public static void main(String[] args) {
         Pasien pasien1 = new Pasien();
 
+        pasien1.setNoRM("182");
         pasien1.setNama("Puspa");
         pasien1.setAlamat("klaten");
 
         Pasien pasien2 = new Pasien();
 
+        pasien2.setNoRM("666");
         pasien2.setNama("Adi");
         pasien2.setAlamat("yogya");
 
